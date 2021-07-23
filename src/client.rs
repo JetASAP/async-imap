@@ -4,7 +4,8 @@ use std::ops::{Deref, DerefMut};
 use std::pin::Pin;
 use std::str;
 
-use async_native_tls::{TlsConnector, TlsStream};
+// use async_native_tls::{TlsConnector, TlsStream};
+use async_tls::{TlsConnector, client::TlsStream};
 use async_std::channel;
 use async_std::io::{self, Read, Write};
 use async_std::net::{TcpStream, ToSocketAddrs};

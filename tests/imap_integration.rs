@@ -2,28 +2,28 @@ use std::borrow::Cow;
 use std::time::Duration;
 
 use async_imap::Session;
-use async_native_tls::TlsConnector;
+use async_tls::{TlsConnector, client::TlsStream};
 use async_std::net::TcpStream;
 use async_std::prelude::*;
 use async_std::task;
 
-fn native_tls() -> async_native_tls::TlsConnector {
-    async_native_tls::TlsConnector::new()
-        .danger_accept_invalid_certs(true)
-        .danger_accept_invalid_hostnames(true)
-}
+// fn native_tls() -> async_native_tls::TlsConnector {
+//     async_native_tls::TlsConnector::new()
+//         .danger_accept_invalid_certs(true)
+//         .danger_accept_invalid_hostnames(true)
+// }
 
 fn tls() -> TlsConnector {
     TlsConnector::new()
-        .danger_accept_invalid_hostnames(true)
-        .danger_accept_invalid_certs(true)
+        // .danger_accept_invalid_hostnames(true)
+        // .danger_accept_invalid_certs(true)
 }
 
 fn test_host() -> String {
     std::env::var("TEST_HOST").unwrap_or_else(|_| "127.0.0.1".into())
 }
 
-async fn session(user: &str) -> Session<async_native_tls::TlsStream<TcpStream>> {
+async fn session(user: &str) -> Session<TlsStream<TcpStream>> {
     async_imap::connect(&format!("{}:3993", test_host()), "imap.example.com", tls())
         .await
         .unwrap()
