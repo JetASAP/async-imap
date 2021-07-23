@@ -20,7 +20,7 @@ fn main() -> Result<()> {
 }
 
 async fn fetch_and_idle(imap_server: &str, login: &str, password: &str) -> Result<()> {
-    let tls = async_native_tls::TlsConnector::new();
+    let tls = async_tls::TlsConnector::new();
     let imap_addr = (imap_server, 993);
 
     // we pass in the imap_server twice to check that the server's TLS

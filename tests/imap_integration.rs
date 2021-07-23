@@ -39,7 +39,7 @@ async fn smtp(user: &str) -> async_smtp::SmtpTransport {
     async_smtp::SmtpClient::with_security(
         &format!("{}:3465", test_host()),
         async_smtp::ClientSecurity::Wrapper(async_smtp::ClientTlsParameters {
-            connector: native_tls(),
+            connector: tls(),
             domain: "localhost".to_string(),
         }),
     )

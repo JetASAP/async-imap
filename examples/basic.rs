@@ -18,7 +18,7 @@ fn main() -> Result<()> {
 }
 
 async fn fetch_inbox_top(imap_server: &str, login: &str, password: &str) -> Result<Option<String>> {
-    let tls = async_native_tls::TlsConnector::new();
+    let tls = async_tls::TlsConnector::new();
     let imap_addr = (imap_server, 993);
 
     // we pass in the imap_server twice to check that the server's TLS
