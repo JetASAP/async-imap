@@ -23,25 +23,25 @@ default = []
 
 [dependencies]
 imap-proto = "0.14.3"
-nom = "6.0"
+nom = "6.2.1"
 base64 = "0.13"
-chrono = "0.4"
+chrono = "0.4.19"
 async-tls = "0.11.0"
-async-std = { version = "1.8.0", default-features = false, features = ["std"] }
-pin-utils = "0.1.0-alpha.4"
-futures = "0.3.15"
-rental = "0.5.5"
-stop-token = "0.2"
-byte-pool = "0.2.2"
+async-std = { version = "1.9.0", default-features = false, features = ["std"] }
+pin-utils = "0.1.0"
+futures = "0.3.16"
+rental = "0.5.6"
+stop-token = "0.2.0"
+byte-pool = "0.2.3"
 lazy_static = "1.4.0"
-log = "0.4.8"
-thiserror = "1.0.9"
+log = "0.4.14"
+thiserror = "1.0.26"
 
 [dev-dependencies]
-lettre_email = "0.9"
-pretty_assertions = "0.6.1"
-async-smtp = { version = "0.3.0" }
-async-std = { version = "1.8.0", default-features = false, features = ["std", "attributes"] }
+lettre_email = "0.9.4"
+pretty_assertions = "0.7.2"
+async-smtp = { version = "0.4.0" }
+async-std = { version = "1.9.0", default-features = false, features = ["std", "attributes"] }
 
 [[example]]
 name = "basic"
